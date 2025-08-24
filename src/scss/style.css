@@ -1,0 +1,278 @@
+@charset "UTF-8";
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #2c3e50;
+  /* Dark background */
+  color: #ecf0f1;
+  /* Light text */
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  color: #ecf0f1;
+  /* Light text */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px;
+  /* Tăng chiều rộng để hiển thị tốt hơn */
+  margin: auto;
+  padding: 0 2rem;
+}
+
+header {
+  background: #1a252f;
+  color: #ecf0f1;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+main {
+  padding: 1rem 0;
+}
+
+.card {
+  background: #34495e;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.table-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  border: 1px solid #4a627a;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+/* Tab navigation */
+.tab-navigation {
+  display: flex;
+  border-bottom: 2px solid #4a627a;
+  margin-bottom: 20px;
+}
+
+/* File upload */
+.custom-file-upload {
+  border: 1px solid #4a627a;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+  background: #2c3e50;
+  color: #ecf0f1;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+input[type=file] {
+  display: none;
+}
+
+button {
+  background: #5dade2;
+  color: #1c2833;
+  border: none;
+  padding: 12px 22px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #7f8c8d;
+  color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Nút Xuất File */
+.export-button {
+  background-color: #27ae60;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.export-button:hover {
+  background-color: #229954;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #4a627a;
+}
+table th {
+  background-color: #34495e;
+  position: sticky;
+  top: 0;
+}
+
+.highlight {
+  background-color: #7a3b3b;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Progress bar */
+.progress-bar-container {
+  width: 100%;
+  background-color: #4a627a;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #1abc9c;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  transition: width 0.4s ease;
+}
+
+#pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#searchInput {
+  padding: 8px;
+  width: 300px;
+  margin-right: 20px;
+  border: 1px solid #4a627a;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border-radius: 4px;
+}
+
+.tab-link {
+  background: none;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #bdc3c7;
+  font-size: 1em;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-link:hover {
+  background: #4a627a;
+  color: #ffffff;
+}
+
+.tab-link.active {
+  color: #ffffff;
+  border-bottom: 3px solid #5dade2;
+}
+
+/* Table and specific group styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #4a627a;
+}
+table th {
+  background-color: #34495e;
+  position: sticky;
+  top: 0;
+}
+
+.highlight {
+  background-color: #7a3b3b;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Style for Group 1 */
+.group1-base {
+  font-weight: bold;
+  color: #5dade2;
+  font-size: 1.1em;
+}
+
+.group1-variant {
+  padding-left: 20px;
+  color: #bdc3c7;
+}
+
+.group1-translation-preview {
+  font-style: italic;
+  color: #95a5a6;
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Database Status */
+#db-status-container {
+  padding: 10px;
+  background-color: #2c3e50;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#dbStatus {
+  font-weight: bold;
+}
+
+.clear-button {
+  background-color: #e74c3c;
+  color: #ffffff;
+  margin-left: 15px;
+  padding: 8px 15px;
+  font-size: 0.9em;
+}
+
+.clear-button:hover {
+  background-color: #c0392b;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #4a627a;
+  margin: 20px 0;
+}/*# sourceMappingURL=style.css.map */

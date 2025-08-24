@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công cụ lọc và xuất file từ điển</title>
+  <link rel="stylesheet" href="src/scss/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Công cụ lọc và xuất file từ điển</h1>
+    </header>
+
+    <main>
+      <div class="upload-section card">
+        <div id="db-status-container">
+          <p>Trạng thái lưu trữ: <span id="dbStatus">Đang kiểm tra...</span></p>
+          <button id="clearDbBtn" class="clear-button hidden">Xóa file đã lưu</button>
+        </div>
+        <hr>
+        <p>Tải file mới nếu chưa có hoặc muốn thay thế file đã lưu.</p>
+        <input type="file" id="fileInput" accept=".txt">
+        <label for="fileInput" class="custom-file-upload">Chọn file từ điển</label>
+        <button id="processBtn" disabled>Lọc và Tải xuống tất cả các file</button>
+      </div>
+
+      <div id="processing-info" class="hidden">
+        <div class="progress-bar-container">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <p id="progressText">Đang khởi tạo...</p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="src/js/main.js"></script>
+</body>
+
+</html>
