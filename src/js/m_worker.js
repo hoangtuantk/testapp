@@ -52,10 +52,11 @@ self.onmessage = async (e) => {
   // --- Data Structures for Results ---
   const group_formatting_errors = [];
   const punctuationVariantsMap = new Map();
-  const group_misspellings = [];
   // Các nhóm cũ vẫn giữ lại
   const identicalA_Map = new Map();
   const group_duplicates_in_B = [];
+  // Khoảng trắng giữa chữ TRUNG
+  const group_spaces_in_A = [];
 
   try {
     while (true) {
@@ -97,10 +98,12 @@ self.onmessage = async (e) => {
         punctuationVariantsMap.get(cleanedA).push(line);
       }
 
-      // --- Logic for Group 1: Misspellings in [B] ---
-      if (misspellingsRegex.test(originalB)) {
-        group_misspellings.push(line);
+      // --- Logic for new group: Spaces in [A] --- //
+      // Regex này tìm một chữ Hán, theo sau là khoảng trắng, rồi đến một chữ Hán khác
+      if (/\p{Script=Han}\s+\p{Script=Han}/u.test(originalA)) {
+        group_spaces_in_A.push(line);
       }
+
 
       // --- Logic for legacy groups ---
       if (!identicalA_Map.has(originalA)) {
@@ -138,20 +141,20 @@ self.onmessage = async (e) => {
     }
 
     // Add results to export queue
-    if (group_misspellings.length > 0) {
-      filesToExport.push({ fileName: 'Nhom_1_B_sai_chinh_ta.txt', fileContent: group_misspellings.join('\n') });
-    }
     if (group_punctuation_variants.length > 0) {
-      filesToExport.push({ fileName: 'Nhom_2_A_la_bien_the_ky_tu.txt', fileContent: group_punctuation_variants.join('\n') });
+      filesToExport.push({ fileName: 'A_la_bien_the_ky_tu.txt', fileContent: group_punctuation_variants.join('\n') });
     }
     if (group_formatting_errors.length > 0) {
-      filesToExport.push({ fileName: 'Nhom_3_loi_dinh_dang.txt', fileContent: group_formatting_errors.join('\n') });
+      filesToExport.push({ fileName: 'Nhom_1_loi_dinh_dang.txt', fileContent: group_formatting_errors.join('\n') });
     }
     if (group_identical_A.length > 0) {
-      filesToExport.push({ fileName: 'Phu_A_trung_lap_tuyet_doi.txt', fileContent: group_identical_A.join('\n') });
+      filesToExport.push({ fileName: 'A_trung_lap_tuyet_doi.txt', fileContent: group_identical_A.join('\n') });
     }
     if (group_duplicates_in_B.length > 0) {
-      filesToExport.push({ fileName: 'Phu_B_trung_lap_trong_dong.txt', fileContent: group_duplicates_in_B.join('\n') });
+      filesToExport.push({ fileName: 'B_trung_lap_trong_dong.txt', fileContent: group_duplicates_in_B.join('\n') });
+    }
+    if (group_spaces_in_A.length > 0) {
+      filesToExport.push({ fileName: 'A_co_khoang_trang_giua_chu.txt', fileContent: group_spaces_in_A.join('\n') });
     }
 
     self.postMessage({ type: 'DONE', payload: filesToExport });
