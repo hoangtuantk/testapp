@@ -98,11 +98,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  // --- Xử lý chuyển tab ---
-  document.querySelector('.tab-navigation').addEventListener('click', (e) => {
-    if (e.target.matches('.tab-link')) {
-      const tabName = e.target.dataset.tab;
-      uiController.setActiveTab(tabName);
-    }
-  });
 });
